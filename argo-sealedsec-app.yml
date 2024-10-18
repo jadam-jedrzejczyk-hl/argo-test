@@ -5,13 +5,13 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: sealed-secrets  # Zmień namespace na właściwy, jeśli potrzebne
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/bitnami-labs/sealed-secrets
+    repoURL: https://github.com/bitnami-labs/sealed-secrets  # Sprawdź poprawność repo
     targetRevision: v0.21.0
-    path: charts/sealed-secrets
+    path: charts/sealed-secrets  # Upewnij się, że ścieżka jest poprawna
   syncPolicy:
     automated:
       prune: true
