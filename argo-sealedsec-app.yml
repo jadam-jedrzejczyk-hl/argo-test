@@ -5,13 +5,16 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: sealed-secrets  # Zmień namespace na właściwy, jeśli potrzebne
+    namespace: kube-system  # Możesz zmienić na preferowaną przestrzeń nazw
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/bitnami-labs/sealed-secrets  # Sprawdź poprawność repo
-    targetRevision: v0.21.0
-    path: charts/sealed-secrets  # Upewnij się, że ścieżka jest poprawna
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 1.23.0  # Upewnij się, że używasz istniejącej wersji
+    chart: sealed-secrets
+    helm:
+      values: |
+        # Tutaj możesz dodać dodatkowe wartości konfiguracyjne dla Helm, jeśli potrzebujesz
   syncPolicy:
     automated:
       prune: true
