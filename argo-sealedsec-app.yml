@@ -5,13 +5,13 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: kube-system  # Możesz zmienić na preferowaną przestrzeń nazw
+    namespace: kube-system  # lub inna preferowana przestrzeń nazw
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
+    repoURL: https://bitnami-labs.github.io/sealed-secrets
     chart: sealed-secrets
-    targetRevision: 2.6.1  # Ustaw istniejącą wersję charta
+    targetRevision: 2.8.0  # Upewnij się, że wersja charta istnieje
   syncPolicy:
     automated:
       prune: true
